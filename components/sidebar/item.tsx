@@ -1,10 +1,10 @@
 "use client";
 import React, { useMemo, useState } from 'react'
 import { ISidebarItem } from '.'
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, CircleChevronDown } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
 
-import SubmenuItem from '../submenu-item';
+import SubmenuItem from './submenu-item';
 
 const SidebarItem = ({item}: {item: ISidebarItem}) => {
 
@@ -46,14 +46,14 @@ const SidebarItem = ({item}: {item: ISidebarItem}) => {
                 </p>
             </div>
             {items && items.length > 0 && (
-                <ChevronDown size={18} 
-                className={expanded ? "rotate-180 duration-250": ""}
+                <CircleChevronDown size={18} 
+                className={expanded ? "rotate-180 duration-250" :""}
                 />
             )}
         </div>
 
         {expanded && items && items.length > 0 && (
-            <div className='flex flex-col space-y-3 ml-10 mt-2'>
+            <div className='flex flex-col space-y-5 ml-10'>
                 {items.map(item => (
                 <SubmenuItem key={item.path} item={item}/>
                 ))}

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { ISubItem } from './sidebar'
+import { ISubItem } from '.'
 import { usePathname, useRouter } from 'next/navigation';
 
 const SubmenuItem = ({item}: {item: ISubItem}) => {

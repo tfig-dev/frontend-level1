@@ -75,7 +75,7 @@ const items: ISidebarItem[] = [
 
 const Sidebar = () => {
   return (
-    <div className='fixed top-0 left-0 h-screen w-64 bg-sidebar-background shadow-lg z-10 p-3'>
+    <div className='fixed top-0 left-0 h-screen w-64 bg-sidebar-background shadow-lg z-10 p-3 drop-shadow-lg rounded-e-3xl rounded-t-none'>
         <div className='flex flex-col space-y-3 w-full'>
             <img className='p-6' src='/assets/images/logo_branco.png' alt='logo'/>
             <div className='flex flex-col space-y-1'>
