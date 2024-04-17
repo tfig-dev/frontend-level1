@@ -1,9 +1,14 @@
-import React from 'react'
+import CreateButton from '@/components/create-button';
+import ExpenseForm from '@/components/forms/expense-form';
+import React from 'react';
 
 const Expense = () => {
   return (
-    <div>Expense</div>
-  )
-}
+    <div>
+      <CreateButton />
+      <ExpenseForm />
+    </div>
+  );
+};
 
-export default Expense
+export default Expense;

@@ -1,27 +1,33 @@
 {
-  "name": "frontend-level1",
+  "name": "izertis.gestaodespesas",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3033",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
-    "lucide-react": "^0.365.0",
+    "dayjs": "^1.11.10",
+    "lucide-react": "^0.367.0",
     "next": "14.1.4",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.13",
     "react": "^18",
-    "react-devtools": "^5.0.2",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.51.2",
+    "react-tailwindcss-datepicker": "^1.6.6",
+    "sass": "^1.74.1"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.4",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"

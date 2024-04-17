@@ -1,9 +1,8 @@
-import React from 'react'
+import DatePicker from '@/components/datepicker';
+import React from 'react';
 
 const Setting = () => {
-  return (
-    <div>Setting</div>
-  )
-}
+  return <DatePicker />;
+};
 
-export default Setting
+export default Setting;

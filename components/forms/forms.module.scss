@@ -1,0 +1,112 @@
+.line {
+  @apply text-right md:flex md:items-center;
+}
+
+.input_field {
+  @apply ml-5 md:ml-5;
+}
+
+.currency {
+  @apply relative pl-5 md:pl-5;
+
+  &__selector {
+    @apply absolute inset-y-0 right-0 flex items-center;
+
+    &__label {
+      @apply h-full rounded-md border-0
+    bg-transparent py-0 pl-2 pr-5 text-subtext
+    focus:ring-1 focus:ring-inset focus:ring-gray-400;
+    }
+  }
+
+  &__icon {
+    @apply pointer-events-none absolute inset-y-0 left-0 flex items-center pl-8;
+
+    &__label {
+      @apply text-lg text-text;
+    }
+  }
+}
+
+.divider {
+  @apply mt-10 pl-2;
+
+  &__label {
+    @apply pl-4 pt-4 text-sm font-semibold text-forms-divider;
+  }
+
+  &__line {
+    @apply rounded-b border-t border-gray-200 p-1 md:p-1;
+  }
+}
+
+.checkbox {
+  @apply h-7 w-7 
+  rounded-lg border-forms-border bg-gray-100 
+  text-forms-savebtn shadow-sm focus:ring-gray-400;
+}
+
+.field {
+  @apply block rounded-lg 
+  border border-forms-border
+  text-text
+  shadow-sm placeholder:text-subtext
+  focus:border-gray-500 focus:ring-gray-400;
+
+  &__small {
+    @apply text-sm uppercase md:w-64;
+  }
+
+  &__large {
+    @apply text-xl uppercase md:w-64;
+  }
+
+  &__textarea {
+    @apply text-sm uppercase md:w-64;
+  }
+}
+
+.select {
+  @apply cursor-pointer;
+}
+
+.label {
+  @apply mb-1 font-extrabold text-forms-label focus:outline-none md:mb-0 md:w-1/4;
+
+  &__small {
+    @apply text-xs;
+  }
+
+  &__medium {
+    @apply text-base;
+  }
+
+  &__large {
+    @apply text-xl;
+  }
+}
+
+.button {
+  @apply ms-3 rounded-lg text-center font-bold uppercase leading-loose focus:ring-2;
+
+  &__submit {
+    @apply bg-forms-savebtn px-5 py-3 
+    text-lg text-white shadow-md
+    hover:bg-forms-hoversavebtn focus:ring-blue-300;
+  }
+
+  &__save {
+    @apply border border-gray-200 
+    bg-forms-cancelbtn 
+    px-4 py-2.5 
+    text-sm text-forms-savebtn shadow-md
+    hover:bg-gray-100 focus:ring-gray-300;
+  }
+
+  &__cancel {
+    @apply px-3 py-2.5
+    text-sm text-forms-savebtn
+    hover:bg-gray-100 hover:text-gray-700 
+    focus:outline-none focus:ring-gray-100;
+  }
+}

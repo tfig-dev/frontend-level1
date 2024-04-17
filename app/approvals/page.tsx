@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Approval = () => {
-  return (
-    <div>Approval</div>
-  )
-}
+  return <div>Approval</div>;
+};
 
-export default Approval
+export default Approval;

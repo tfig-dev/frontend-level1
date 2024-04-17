@@ -1,30 +1,29 @@
-import React, { useMemo } from 'react'
-import { ISubItem } from '.'
+import React, { useMemo } from 'react';
+import { ISubItem } from '.';
 import { usePathname, useRouter } from 'next/navigation';
 
-const SubmenuItem = ({item}: {item: ISubItem}) => {
+const SubmenuItem = ({ item }: { item: ISubItem }) => {
+  const { name, path } = item;
+  const router = useRouter();
+  const pathname = usePathname();
 
-const {name, path} = item;
-const router = useRouter();
-const pathname = usePathname();
-
-const onClick = () => {
+  const onClick = () => {
     router.push(path);
-}
+  };
 
-const isActive = useMemo(() => {
+  const isActive = useMemo(() => {
     return pathname === path;
-}, [path, pathname]);
+  }, [path, pathname]);
 
   return (
     <div
-        className={`text-sm hover:text-sidebar-hoversub font-semibold uppercase text-sidebar-subcategory cursor-pointer 
-        ${isActive ? "text-sidebar-hoversub ":""}`}
-        onClick={onClick}
+      className={`cursor-pointer text-sm font-semibold uppercase text-sidebar-subcategory hover:text-sidebar-hoversub 
+        ${isActive ? 'text-sidebar-hoversub ' : ''}`}
+      onClick={onClick}
     >
-        {name}
-    </div> 
-    )
-}
+      {name}
+    </div>
+  );
+};
 
 export default SubmenuItem;

@@ -1,2 +1,6 @@
-npm i lucide-react
+npm i lucide-react - https://lucide.dev/guide/installation
 tailwindcss
+npm i sass - https://www.npmjs.com/package/sass
+npm i @tailwindcss/forms - https://github.com/tailwindlabs/tailwindcss-forms
+npm i react-tailwindcss-datepicker - https://github.com/onesine/react-tailwindcss-datepicker
+npm install react-hook-form - https://react-hook-form.com/get-started

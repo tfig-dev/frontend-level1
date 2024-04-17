@@ -1,0 +1,7 @@
+.create {
+  @apply mb-2 me-2 inline-flex rounded-lg bg-gradient-to-r from-blue-600 via-blue-700 to-blue-900 px-5 py-4 text-center font-semibold uppercase text-white shadow-lg shadow-blue-500/50 hover:bg-gradient-to-br focus:outline-none focus:ring-4 focus:ring-blue-200 dark:shadow-lg dark:shadow-blue-800/80 dark:focus:ring-blue-800;
+
+  &__icon {
+    @apply -ms-1 me-3 h-6 w-5;
+  }
+}

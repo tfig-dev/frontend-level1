@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Route = () => {
-  return (
-    <div>M - Route</div>
-  )
-}
+  return <div>M - Route</div>;
+};
 
-export default Route
+export default Route;

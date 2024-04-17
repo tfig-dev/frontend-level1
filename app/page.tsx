@@ -1,8 +1,5 @@
-import React from 'react'
+import Image from 'next/image';
 
-const Sidebar = () => {
-  return 
-    <div className='text-sidebar-active'>Home</div>
-};
-
-export default Sidebar
+export default function Home() {
+  return <div>dashboard</div>;
+}
