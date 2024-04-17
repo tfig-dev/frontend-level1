@@ -15,6 +15,7 @@ import DateInput from './inputs/date-input';
 import BooleanInput from './inputs/boolean-input';
 import Badge from './labels/badge';
 import MerchantInterface from '@/interfaces/MerchantInterface';
+import { Option } from '@/interfaces/FormProps';
 
 const ExpenseForm = () => {
   const {
@@ -24,19 +25,12 @@ const ExpenseForm = () => {
     formState: { errors },
   } = useForm<ExpenseFormInterface>();
 
-  const [merchants, setMerchants] = useState([]);
-
-  const [mappedMerchants, setMappedMerchants] = useState<MerchantInterface[]>(
-    []
-  );
-
+  const [merchants, setMerchants] = useState<MerchantInterface[]>([]);
   const [clients, setClients] = useState([]);
-
   const [projects, setProjects] = useState([]);
-
   const [users, setUsers] = useState([]);
-
   const [value, setValue] = useState<(typeof users)[0] | undefined>(users[0]);
+  const [selectedMerchant, setSelectedMerchant] = useState('');
 
   const [currency, setCurrency] = useState<{ id: string; value: string }[]>(
     () => {
@@ -55,33 +49,9 @@ const ExpenseForm = () => {
 
   //merchants
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/merchants`, {
-      method: 'GET',
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setMappedMerchants(
-          data.map((merchant: MerchantInterface) => {
-            return {
-              name: merchant.name,
-              id: merchant.vat,
-              merchantType: merchant.merchantType,
-            };
-          })
-        );
-
-        setMerchants(
-          data.map(
-            (merchant: { name: string; vat: number; merchantType: string }) => {
-              return {
-                value: merchant.name,
-                id: merchant.vat,
-                merchantType: merchant.merchantType,
-              };
-            }
-          )
-        );
-      })
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/merchants`)
+      .then((response) => response.json() as Promise<MerchantInterface[]>)
+      .then((data) => setMerchants(data))
       .catch((error) => {
         console.error('Error fetching:', error);
       });
@@ -129,9 +99,6 @@ const ExpenseForm = () => {
       });
   }, []);
 
-  //console.log(errors);
-  //console.log(watch());
-
   const submitForm: SubmitHandler<ExpenseFormInterface> = (
     data: ExpenseFormInterface
   ) => {
@@ -169,9 +136,7 @@ const ExpenseForm = () => {
 
   const selectedExpenseType = watch('expense_type');
 
-  const selectedMerchant = watch('merchant');
-
-  const selectedMerchantCategory = mappedMerchants.find(
+  const selectedMerchantCategory = merchants.find(
     (merchant) => merchant.vat === parseInt(watch('merchant'))
   )?.merchantType;
 
@@ -233,8 +198,14 @@ const ExpenseForm = () => {
             <DefaultFormInput
               label='FORNECEDOR'
               size='medium'
-              options={merchants}
-              register={register('merchant', { required: true })}
+              options={merchants.map((merchant) => ({
+                id: merchant.vat,
+                value: merchant.name,
+              }))}
+              register={register('merchant', {
+                required: true,
+                onChange: (e) => setSelectedMerchant(e.target.value),
+              })}
             />
 
             {selectedMerchant !== '' ? (

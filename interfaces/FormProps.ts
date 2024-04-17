@@ -1,7 +1,7 @@
 import { UseFormRegisterReturn } from 'react-hook-form';
 
 export interface Option {
-  id: string;
+  id: string | number;
   value: string;
 }
 
